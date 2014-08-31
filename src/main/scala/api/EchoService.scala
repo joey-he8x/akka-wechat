@@ -3,7 +3,9 @@ package api
 import akka.actor.ActorRef
 import akka.util.Timeout
 import spray.routing.Directives
-
+import spray.json._
+import spray.http.HttpRequest
+import DefaultJsonProtocol._
 
 import scala.concurrent.{Await, ExecutionContext}
 
@@ -17,14 +19,27 @@ class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
   import scala.concurrent.duration._
   implicit val timeout = Timeout(2.seconds)
 
+  //implicit val httpRequestFormat = jsonFormat5(HttpRequest)
+
   val route =
-    path("echo") {
-      get {
-        handleWith { body: String =>
-          println(body)
-          val ret = (echo ? body).mapTo[String]
-          Await.result[String](ret,1 seconds)
+    path("echo-post-parameter") {
+      post {
+        parameter('color) { color =>
+            println(color)
+            complete(color)
         }
+      }
+    } ~
+    path("echo-get-parameter") {
+      get {
+        parameter('color){ color =>
+          complete(color)
+        }
+      }
+    }~
+    path("full") {
+      get { idx =>
+        complete(idx.request.toString)
       }
     }
 }
