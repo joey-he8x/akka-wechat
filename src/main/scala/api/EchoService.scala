@@ -3,11 +3,8 @@ package api
 import akka.actor.ActorRef
 import akka.util.Timeout
 import spray.routing.Directives
-import spray.json._
-import spray.http.HttpRequest
-import DefaultJsonProtocol._
 
-import scala.concurrent.{Await, ExecutionContext}
+import scala.concurrent.ExecutionContext
 
 /**
  * Created by joey on 14-8-27.
@@ -15,7 +12,6 @@ import scala.concurrent.{Await, ExecutionContext}
 class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
 
-  import akka.pattern.ask
   import scala.concurrent.duration._
   implicit val timeout = Timeout(2.seconds)
 
@@ -36,10 +32,14 @@ class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
           complete(color)
         }
       }
-    }~
-    path("full") {
-      get { idx =>
-        complete(idx.request.toString)
+    } ~
+    path("echo") { ctx =>
+      ctx.complete(ctx.request.toString())
+
+    } ~
+    path("full2") {
+      get {
+        complete("ok")
       }
     }
 }
