@@ -26,7 +26,8 @@ libraryDependencies ++= {
     "io.spray" %% "spray-routing" % sprayVersion,
     "io.spray" %% "spray-json" % "1.2.6" exclude ("org.scala-lang" , "scala-library"),
     "io.spray" %% "spray-testkit" % sprayVersion % "test",
-    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test"
+    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
+    "org.specs2" %% "specs2" % "2.4.2" % "test"
   )
 }
 

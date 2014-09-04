@@ -35,11 +35,5 @@ class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
     } ~
     path("echo") { ctx =>
       ctx.complete(ctx.request.toString())
-
-    } ~
-    path("full2") {
-      get {
-        complete("ok")
-      }
     }
 }
