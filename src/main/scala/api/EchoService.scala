@@ -10,7 +10,7 @@ import scala.concurrent.ExecutionContext
  * Created by joey on 14-8-27.
  */
 class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
-  extends Directives with DefaultJsonFormats {
+  extends Directives with WechatAuth  with DefaultJsonFormats {
 
   import scala.concurrent.duration._
   implicit val timeout = Timeout(2.seconds)
@@ -35,5 +35,10 @@ class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
     } ~
     path("echo") { ctx =>
       ctx.complete(ctx.request.toString())
+    } ~
+    path("wechat") {
+      wechatIdentification{ ctx =>
+        ctx.complete(ctx.request.toString())
+      }
     }
 }

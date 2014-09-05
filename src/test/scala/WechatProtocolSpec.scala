@@ -1,3 +1,4 @@
+import api.WechatAuth
 import org.specs2.mutable.Specification
 import spray.routing.HttpService
 import spray.testkit.Specs2RouteTest
@@ -9,7 +10,7 @@ class WechatProtocolTest extends Specification with Specs2RouteTest with HttpSer
   val smallRoute =
     get {
       pathSingleSlash {
-        WechatIdentification{
+        wechatIdentification{
           complete {
             <html>
               <body>
@@ -26,13 +27,13 @@ class WechatProtocolTest extends Specification with Specs2RouteTest with HttpSer
   "The service" should {
     "return ok for signature pass" in {
       Get("/?signature=0f02c83641a0cbd46c17eac46d5ed2d7f26d307d&echostr=4598100252485630911&timestamp=1409817535&nonce=457762123") ~>
-        WechatIdentification(complete("ok")) ~> check {
+        wechatIdentification(complete("ok")) ~> check {
         responseAs[String] === "ok"
       }
     }
     "return fail for signature fail" in {
       Get("/?signature=0f02c83611a0cbd46c17eac46d5ed2d7f26d307d&echostr=4598100252485630911&timestamp=1409817535&nonce=457762123") ~>
-        WechatIdentification(complete("ok")) ~> check {
+        wechatIdentification(complete("ok")) ~> check {
         handled must beFalse
       }
     }

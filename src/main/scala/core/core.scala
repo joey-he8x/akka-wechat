@@ -1,10 +1,7 @@
 package core
 
-import akka.actor.{Props, ActorRefFactory, ActorSystem}
-import akka.io.IO
-import api.{WechatApi, RoutedHttpService}
-import spray.can.Http
-import wechat.EchoActor
+import akka.actor.{ActorSystem, Props}
+import wechat.{EchoActor, WechatRouterActor}
 
 trait Core {
 
@@ -28,6 +25,7 @@ trait Core {
 trait CoreActors {
   this: Core =>
     val echo = system.actorOf(Props[EchoActor])
+    val wechat = system.actorOf(Props[WechatRouterActor])
 //  val registration = system.actorOf(Props[RegistrationActor])
 //  val messenger    = system.actorOf(Props[MessengerActor])
 

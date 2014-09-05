@@ -1,7 +1,6 @@
 package api
 
 import core.{Core, CoreActors}
-import spray.routing.HttpService
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -11,7 +10,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 trait WechatApi extends CoreActors with Core {
 
   val routes =
-    new EchoService(echo).route
+    new WechatService(wechat).route
 //  val routes =
 //    new RegistrationService(registration).route ~
 //      new MessengerService(messenger).route ~
