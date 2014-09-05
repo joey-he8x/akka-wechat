@@ -40,7 +40,7 @@ class RoutedHttpService(route: Route) extends Actor with HttpService with ActorL
   val myWechatRejectionHandler = RejectionHandler{
     case WechatAuth.WechatAuthFailRejection(list) :: _ =>
       list match {
-        case (signature , timestamp , nonce , echostr) => log.error("wechat signature invalid: signature:{},timestamp:{},nonce:{},echostr:{}",signature,timestamp,nonce,echostr)
+        case (signature , timestamp , nonce) => log.error("wechat signature invalid: signature:{},timestamp:{},nonce:{}",signature,timestamp,nonce)
       }
       complete(Unauthorized, "Signature not match")
 

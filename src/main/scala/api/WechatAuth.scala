@@ -9,8 +9,8 @@ import spray.routing._
 
 trait WechatAuth extends Directives{
   def wechatIdentification: Directive0 = {
-    val wechatSignParameters: Directive[String :: Long :: String :: String :: HNil] =
-      parameters('signature,'timestamp.as[Long],'nonce.as[String],'echostr.as[String])
+    val wechatSignParameters: Directive[String :: Long :: String :: HNil] =
+      parameters('signature,'timestamp.as[Long],'nonce.as[String])
 
     wechatSignParameters.hflatMap[HNil] {
       case signature :: timestamp :: nonce :: echostr :: HNil => {
@@ -20,13 +20,13 @@ trait WechatAuth extends Directives{
         if (Sha1Digest.listToByte(encListByte).toString == signature)
           pass
         else
-          reject(new WechatAuth.WechatAuthFailRejection((signature,timestamp,nonce,echostr)))
+          reject(new WechatAuth.WechatAuthFailRejection((signature,timestamp,nonce)))
       }
     }
 
   }
 }
 object WechatAuth{
-  case class WechatAuthFailRejection(parameters:Tuple4[String,Long,String,String]) extends Rejection
+  case class WechatAuthFailRejection(parameters:Tuple4[String,Long,String]) extends Rejection
   private val token = "mJB53wkOCSrpQWklPOyLj1B8JcKh70Cn"
 }

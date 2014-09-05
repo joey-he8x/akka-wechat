@@ -24,6 +24,10 @@ class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
             echostr =>
             complete(echostr)
           }
+        } ~
+        post{
+          ctx =>
+            ctx.complete(ctx.request.toString())
         }
       }
     }
