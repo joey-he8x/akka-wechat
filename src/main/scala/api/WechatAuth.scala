@@ -6,8 +6,13 @@ package api
 import api.util.Sha1Digest
 import shapeless._
 import spray.routing._
+import spray.routing.directives.{RouteDirectives, ParameterDirectives, BasicDirectives}
 
-trait WechatAuth extends Directives{
+trait WechatAuth{
+  import BasicDirectives._
+  import ParameterDirectives._
+  import RouteDirectives._
+
   def wechatIdentification: Directive0 = {
     val wechatSignParameters: Directive[String :: Long :: String :: HNil] =
       parameters('signature,'timestamp.as[Long],'nonce.as[String])
@@ -23,7 +28,6 @@ trait WechatAuth extends Directives{
           reject(new WechatAuth.WechatAuthFailRejection((signature,timestamp,nonce)))
       }
     }
-
   }
 }
 object WechatAuth{
