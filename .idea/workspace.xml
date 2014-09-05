@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2776ad0a-d432-47ff-bc04-de85edca5432" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala" afterPath="$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/api/WechatService.scala" afterPath="$PROJECT_DIR$/src/main/scala/api/WechatService.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/api/services.scala" afterPath="$PROJECT_DIR$/src/main/scala/api/services.scala" />
     </list>
     <ignored path="akka-wechat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/api/services.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44805196" vertical-offset="618" max-vertical-offset="1116">
+            <state vertical-scroll-proportion="-4.6" vertical-offset="618" max-vertical-offset="1116">
               <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
                 <element signature="e#13#52#0" expanded="true" />
@@ -93,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WechatAuth.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WechatAuth.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="666">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.46153846" vertical-offset="108" max-vertical-offset="666">
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#51#77#0" expanded="true" />
@@ -159,8 +157,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/core/core.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/api/wechat.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/api/WechatService.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/api/services.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala" />
       </list>
     </option>
   </component>
@@ -1017,12 +1015,12 @@
       <workItem from="1409822566995" duration="918000" />
       <workItem from="1409823492571" duration="150000" />
       <workItem from="1409823643943" duration="75000" />
-      <workItem from="1409823790528" duration="20120000" />
+      <workItem from="1409823790528" duration="20263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54377000" />
+    <option name="totallyTimeSpent" value="54520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -1479,17 +1477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="666">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#51#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/api/WechatService.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="666">
@@ -1500,10 +1487,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/api/services.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44805196" vertical-offset="618" max-vertical-offset="1116">
+        <state vertical-scroll-proportion="-4.6" vertical-offset="618" max-vertical-offset="1116">
           <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
             <element signature="e#13#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/api/WechatAuth.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46153846" vertical-offset="108" max-vertical-offset="666">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#51#77#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -13,7 +13,7 @@ trait WechatAuth extends Directives{
       parameters('signature,'timestamp.as[Long],'nonce.as[String])
 
     wechatSignParameters.hflatMap[HNil] {
-      case signature :: timestamp :: nonce :: echostr :: HNil => {
+      case signature :: timestamp :: nonce :: HNil => {
         val tmpStr = (WechatAuth.token :: timestamp.toString :: nonce :: Nil)
           .sortWith(_.compareTo(_) < 0).mkString
         val encListByte = Sha1Digest.hashMessage(new Sha1Digest.Bytes(tmpStr.getBytes.toList))
@@ -27,6 +27,6 @@ trait WechatAuth extends Directives{
   }
 }
 object WechatAuth{
-  case class WechatAuthFailRejection(parameters:Tuple4[String,Long,String]) extends Rejection
+  case class WechatAuthFailRejection(parameters:Tuple3[String,Long,String]) extends Rejection
   private val token = "mJB53wkOCSrpQWklPOyLj1B8JcKh70Cn"
 }
