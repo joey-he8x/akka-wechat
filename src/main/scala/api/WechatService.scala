@@ -1,6 +1,6 @@
 package api
 
-import akka.actor.ActorRef
+import akka.actor.{ActorLogging, ActorRef}
 import akka.util.Timeout
 
 import scala.concurrent.ExecutionContext
@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext
  * Created by joey on 14-8-27.
  */
 class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
-  extends WechatAuth  with DefaultJsonFormats {
+  extends WechatAuth  with DefaultJsonFormats with ActorLogging {
 
   import scala.concurrent.duration._
   implicit val timeout = Timeout(2.seconds)
@@ -27,7 +27,8 @@ class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
         } ~
         post{
           ctx =>
-            ctx.complete(ctx.request.toString())
+            log.error(ctx.request.toString)
+            ctx.complete(ctx.request.toString)
         }
       }
     }
