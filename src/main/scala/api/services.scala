@@ -1,7 +1,6 @@
 package api
 
 import akka.actor.{Actor, ActorLogging}
-import shapeless.{:: => concat}
 import spray.http.StatusCodes._
 import spray.http._
 import spray.routing._
@@ -39,8 +38,9 @@ class RoutedHttpService(route: Route) extends Actor with HttpService with ActorL
 
   val myWechatRejectionHandler = RejectionHandler{
     case WechatAuth.WechatAuthFailRejection(list) :: _ =>
-      list match {
-        case (signature , timestamp , nonce) => log.error("wechat signature invalid: signature:{},timestamp:{},nonce:{}",signature,timestamp,nonce)
+      import shapeless.{::, HNil}
+      list match{
+        case signature::timestamp::nonce::HNil =>log.error("wechat signature invalid: signature:{},timestamp:{},nonce:{}",signature,timestamp,nonce)
       }
       complete(Unauthorized, "Signature not match")
 

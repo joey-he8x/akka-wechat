@@ -25,12 +25,15 @@ trait WechatAuth{
         if (Sha1Digest.listToByte(encListByte).toString == signature)
           pass
         else
-          reject(new WechatAuth.WechatAuthFailRejection((signature,timestamp,nonce)))
+//          reject(new WechatAuth.WechatAuthFailRejection((signature,timestamp,nonce)))
+          reject(new WechatAuth.WechatAuthFailRejection(signature::timestamp::nonce::HNil))
       }
     }
   }
 }
 object WechatAuth{
-  case class WechatAuthFailRejection(parameters:Tuple3[String,Long,String]) extends Rejection
+  type WechatAuthChain = String :: Long :: String :: HNil
+//  case class WechatAuthFailRejection(parameters:Tuple3[String,Long,String]) extends Rejection
+  case class WechatAuthFailRejection(parameters: WechatAuthChain) extends Rejection
   private val token = "mJB53wkOCSrpQWklPOyLj1B8JcKh70Cn"
 }

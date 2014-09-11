@@ -11,12 +11,11 @@ import scala.xml.NodeSeq
  * Created by joey on 14-8-27.
  */
 class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
-  extends Directives with WechatAuth with DefaultJsonFormats {
+  extends Directives with WechatAuth with WechatXmlContent {
 
   import scala.concurrent.duration._
   implicit val timeout = Timeout(2.seconds)
 
-  //implicit val httpRequestFormat = jsonFormat5(HttpRequest)
 
   val route =
     path("wx-api") {
@@ -28,13 +27,10 @@ class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
           }
         } ~
         post{
-              entity(as[NodeSeq]) {
-                xml =>
-                        complete(xml.toString())
-//                  ctx =>
-//                    println(ctx.request.toString)
-//                    ctx.complete(ctx.request.toString)
-              }
+          handleWith {
+            xml:NodeSeq =>
+              xml
+            }
         }
       }
     }

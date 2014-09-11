@@ -27,7 +27,8 @@ libraryDependencies ++= {
     "io.spray" %% "spray-json" % "1.2.6" exclude ("org.scala-lang" , "scala-library"),
     "io.spray" %% "spray-testkit" % sprayVersion % "test",
     "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
-    "org.specs2" %% "specs2" % "2.4.2" % "test"
+    "org.specs2" %% "specs2" % "2.4.2" % "test",
+    "com.github.nscala-time" %% "nscala-time" % "1.4.0"
   )
 }
 
@@ -39,6 +40,7 @@ scalacOptions ++= Seq(
   "-language:_",
   "-target:jvm-1.7",
   "-encoding", "UTF-8"
+//  "-Xprint:typer"
 )
 
 Revolver.settings : Seq[sbt.Def.Setting[_]]
