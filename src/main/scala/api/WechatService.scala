@@ -10,16 +10,17 @@ import scala.xml.NodeSeq
 /**
  * Created by joey on 14-8-27.
  */
-class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
-  extends Directives with WechatAuth with WechatXmlContent {
+class WechatService(wechatRoute: ActorRef)(implicit executionContext: ExecutionContext)
+  extends Directives with WechatAuth {
 
   import scala.concurrent.duration._
+  import akka.pattern.ask
   implicit val timeout = Timeout(2.seconds)
 
 
   val route =
-    path("wx-api") {
-      wechatIdentification {
+    path("wx-api" / IntNumber) { app_id =>
+      wechatIdentification(app_id) {
         get {
           parameter('echostr){
             echostr =>
@@ -29,7 +30,7 @@ class WechatService(echo: ActorRef)(implicit executionContext: ExecutionContext)
         post{
           handleWith {
             xml:NodeSeq =>
-              xml
+              (wechatRoute ? xml).mapTo[NodeSeq]
             }
         }
       }

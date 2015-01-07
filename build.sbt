@@ -8,6 +8,11 @@ scalaVersion := "2.11.1"
 
 resolvers += "spray" at "http://repo.spray.io/"
 
+resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+
+resolvers += "Typesafe repository" at
+  "http://repo.typesafe.com/typesafe/releases/"
+
 // Change this to another test framework if you prefer
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.6" % "test"
 
@@ -22,6 +27,7 @@ libraryDependencies ++= {
       exclude ("org.slf4j", "slf4j-api")
       exclude ("org.scala-lang" , "scala-library"),
     "ch.qos.logback" % "logback-classic" % "1.0.13",
+    "org.reactivemongo" %% "reactivemongo" % "0.10.5.akka23-SNAPSHOT",
     "io.spray" %% "spray-can" % sprayVersion,
     "io.spray" %% "spray-routing" % sprayVersion,
     "io.spray" %% "spray-json" % "1.2.6" exclude ("org.scala-lang" , "scala-library"),

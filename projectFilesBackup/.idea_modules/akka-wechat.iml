@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="scala" name="Scala">
+      <configuration>
+        <option name="compilerLibraryLevel" value="Project" />
+        <option name="compilerLibraryName" value="SBT: scala:2.11.1" />
+        <option name="compilerOptions" value="-Xlint -Ywarn-dead-code -language:_ -target:jvm-1.7 -encoding UTF-8" />
+        <option name="deprecationWarnings" value="true" />
+        <option name="fsc" value="true" />
+        <option name="languageLevel" value="Scala 2.11" />
+        <option name="uncheckedWarnings" value="true" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/../target/classes" />
     <output-test url="file://$MODULE_DIR$/../target/test-classes" />
@@ -48,6 +61,7 @@
     <orderEntry type="library" name="SBT: com.chuusai:shapeless_2.11:1.2.4" level="project" />
     <orderEntry type="library" name="SBT: io.spray:spray-json_2.11:1.2.6" level="project" />
     <orderEntry type="library" name="SBT: com.github.nscala-time:nscala-time_2.11:1.4.0" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.2" level="project" />
     <orderEntry type="library" name="SBT: joda-time:joda-time:2.4" level="project" />
     <orderEntry type="library" name="SBT: org.joda:joda-convert:1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.11:2.1.6:test" level="project" />
@@ -70,7 +84,6 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.objenesis:objenesis:1.0:test" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: junit:junit:4.11:test" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.specs2:classycle:1.4.3:test" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.2" level="project" />
-    <orderEntry type="library" name="scala-sdk-2.11.2" level="application" />
   </component>
 </module>
+

@@ -2,6 +2,9 @@ package wechat
 
 import akka.actor.Actor
 import com.github.nscala_time.time.Imports._
+import reactivemongo.api.MongoDriver
+
+import scala.xml.NodeSeq
 
 /**
  * Created by joey on 14-8-29.
@@ -16,7 +19,10 @@ case class WechatGeoEventMsg(ToUserName:String,FromUserName:String,CreateTime:Da
 
 
 class WechatRouterActor extends Actor {
+  val driver = new MongoDriver
+
   def receive: Receive = {
-    case x => sender ! x
+    case x: NodeSeq if (x \ "MsgType").text == "text"  => sender ! <string>text</string>//sender ! x
+    case x: NodeSeq if (x \ "MsgType").text == "event"  => sender ! <string>event</string>//sender ! x
   }
 }
