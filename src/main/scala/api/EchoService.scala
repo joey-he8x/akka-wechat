@@ -35,10 +35,5 @@ class EchoService(echo: ActorRef)(implicit executionContext: ExecutionContext)
     } ~
     path("echo") { ctx =>
       ctx.complete(ctx.request.toString())
-    } ~
-    path("wechat") {
-      wechatIdentification{ ctx =>
-        ctx.complete(ctx.request.toString())
-      }
     }
 }

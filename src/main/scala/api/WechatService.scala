@@ -3,6 +3,7 @@ package api
 import akka.actor.ActorRef
 import akka.util.Timeout
 import spray.routing.Directives
+import wechat.model.{WechatMsg, WechatMsgFormator}
 
 import scala.concurrent.ExecutionContext
 import scala.xml.NodeSeq
@@ -19,8 +20,8 @@ class WechatService(wechatRoute: ActorRef)(implicit executionContext: ExecutionC
 
 
   val route =
-    path("wx-api" / IntNumber) { app_id =>
-      wechatIdentification(app_id) {
+    path("wx-api" / IntNumber) { appId =>
+      wechatIdentification(appId) {
         get {
           parameter('echostr){
             echostr =>
@@ -30,7 +31,7 @@ class WechatService(wechatRoute: ActorRef)(implicit executionContext: ExecutionC
         post{
           handleWith {
             xml:NodeSeq =>
-              (wechatRoute ? xml).mapTo[NodeSeq]
+              (wechatRoute ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
             }
         }
       }

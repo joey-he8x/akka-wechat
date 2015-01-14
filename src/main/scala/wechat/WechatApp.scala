@@ -1,13 +1,18 @@
 package wechat
 
-import akka.actor.Actor
+import akka.actor.{Props, Actor}
+import wechat.model.BaseWechatMsg
 
 /**
  * Created by joey on 14-9-18.
  */
-case class WechatApp(name: String) extends Actor{
+case class WechatApp(id: String) extends Actor{
   def receive:Receive = {
-    case cmd => sender ! cmd
+    case msg:BaseWechatMsg => sender ! msg
   }
 
+}
+
+object WechatApp{
+  def props(appId: Int): Props = Props(classOf[WechatApp],appId)
 }
