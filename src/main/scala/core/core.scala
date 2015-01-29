@@ -1,7 +1,7 @@
 package core
 
 import akka.actor.{ActorSystem, Props}
-import wechat.{EchoActor, WechatRouterActor}
+import wechat.{EchoActor, WechatAppSupervisor}
 
 trait Core {
 
@@ -25,7 +25,7 @@ trait Core {
 trait CoreActors {
   this: Core =>
     val echo = system.actorOf(Props[EchoActor])
-    val wechat = system.actorOf(Props[WechatRouterActor])
+    val wechat = system.actorOf(Props[WechatAppSupervisor],"wechatAppSupervisor")
 //  val registration = system.actorOf(Props[RegistrationActor])
 //  val messenger    = system.actorOf(Props[MessengerActor])
 

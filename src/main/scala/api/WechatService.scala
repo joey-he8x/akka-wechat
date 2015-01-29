@@ -11,7 +11,7 @@ import scala.xml.NodeSeq
 /**
  * Created by joey on 14-8-27.
  */
-class WechatService(wechatRoute: ActorRef)(implicit executionContext: ExecutionContext)
+class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with WechatAuth {
 
   import scala.concurrent.duration._
@@ -31,7 +31,7 @@ class WechatService(wechatRoute: ActorRef)(implicit executionContext: ExecutionC
         post{
           handleWith {
             xml:NodeSeq =>
-              (wechatRoute ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
+              (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
             }
         }
       }

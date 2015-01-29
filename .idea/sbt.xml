@@ -4,6 +4,12 @@
     <option name="linkedExternalProjectsSettings">
       <SbtProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat" />
+            <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/project" />
+          </set>
+        </option>
         <option name="sbtVersion" value="0.13.5" />
         <option name="useAutoImport" value="true" />
       </SbtProjectSettings>
