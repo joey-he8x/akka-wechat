@@ -10,7 +10,7 @@ trait CommunityCmdParser extends CmdParser{
   self: Actor =>
   def exec = {
     case _ => {
-      context.actorOf()
+      context.actorOf(h)
     }
   }
 }
