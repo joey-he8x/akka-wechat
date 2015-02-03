@@ -1,6 +1,7 @@
 package wechat.model.command
 
-import wechat.model.{User, WechatTextMsg}
+import bz.model.User
+import wechat.model.WechatTextMsg
 import wechat.model.command.CmdRule.CmdRuleType
 
 
@@ -9,13 +10,13 @@ import wechat.model.command.CmdRule.CmdRuleType
  */
 case class ActivityDetail(activityId:Int,user:User) extends ValidCmd
 
-object ActivityDetail extends CmdRule("ActivityDetail","""^a (\d+)""",CmdRuleType.RegExpr){
+object ActivityDetail extends CmdRule("ActivityDetail","""^ad (\d+)""",CmdRuleType.RegExpr){
 
   def unapply(input:WechatTextMsg): Option[ActivityDetail]={
     val re = pattern.r
     input.content.trim match {
       case re(id) =>
-        val u = User.find(input.fromUserName)
+        val u = User(null,null)
         Some(ActivityDetail(id.toInt,u))
       case _ => None
     }

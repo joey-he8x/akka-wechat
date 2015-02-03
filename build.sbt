@@ -28,6 +28,7 @@ libraryDependencies ++= {
       exclude ("org.scala-lang" , "scala-library"),
     "ch.qos.logback" % "logback-classic" % "1.0.13",
     "org.reactivemongo" %% "reactivemongo" % "0.10.5.akka23-SNAPSHOT",
+    "org.reactivemongo" %% "reactivemongo-extensions-bson" % "0.10.5.0.0.akka23",
     "io.spray" %% "spray-can" % sprayVersion,
     "io.spray" %% "spray-routing" % sprayVersion,
     "io.spray" %% "spray-json" % "1.2.6" exclude ("org.scala-lang" , "scala-library"),

@@ -29,7 +29,7 @@ object WechatMsgFormator{
       val event = (x \ "Event").text
       val eventKey = (x \ "EventKey").text
       val ticket = (x \ "Ticket").text
-      WechatEventMsg(toUsername,fromUserName,createTime,msgType,content,event,eventKey,ticket)
+      WechatEventMsg(toUsername,fromUserName,createTime,msgType,event,eventKey,ticket)
     }
     case x:NodeSeq if (x \ "MsgType").text == "event" && (x \ "Latitude").nonEmpty => {
       val toUsername = (x \ "ToUserName").text
@@ -41,7 +41,7 @@ object WechatMsgFormator{
       val latitude = (x \ "Latitude").text.toDouble
       val longitude = (x \ "Longitude").text.toDouble
       val precision = (x \ "Precision").text.toDouble
-      WechatGeoEventMsg(toUsername,fromUserName,createTime,msgType,content,event,latitude,longitude,precision)
+      WechatGeoEventMsg(toUsername,fromUserName,createTime,msgType,event,latitude,longitude,precision)
     }
     case x:NodeSeq => UnknownMsg(x)
   }

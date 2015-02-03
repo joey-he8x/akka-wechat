@@ -15,15 +15,13 @@ class WechatAppSupervisor extends Actor {
   val driver = new MongoDriver
 
   def receive: Receive = {
-    case x:WechatMsg => {
-
+    case x:WechatMsg =>
       context.child(x.appId.toString) match {
-        case Some(app:WechatApp) => app forward x.msg
+        case Some(app) => app forward x.msg
         case None =>
           val appProp = WechatApp.props(x.appId)
           val app = context.actorOf(appProp,x.appId.toString)
           app forward x.msg
       }
-    }
   }
 }
