@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="akka-wechat-build" external.linked.project.path="$MODULE_DIR$/../project" external.root.project.path="$MODULE_DIR$/.." external.system.id="SBT" sbt.imports="sbt._, Keys._, _root_.spray.revolver.RevolverPlugin._, _root_.com.timushev.sbt.updates.UpdatesPlugin._, _root_.com.typesafe.sbt.SbtNativePackager._, _root_.net.virtualvoid.sbt.graph.Plugin._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin" sbt.resolvers="http://maven.oschina.net/content/groups/public/|maven|osc, https://oss.sonatype.org/content/repositories/snapshots/|maven|sonatype-snapshots, http://repo1.maven.org/maven2/|maven|public, http://repo.spray.io/|maven|spray, https://oss.sonatype.org/content/repositories/snapshots/|maven|Sonatype Snapshots, https://oss.sonatype.org/content/repositories/releases/|maven|sonatype-releases, /Users/joey/.ivy2/cache|ivy|Local cache, http://repo.typesafe.com/typesafe/releases/|maven|Typesafe repository" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="akka-wechat-build" external.linked.project.path="/mnt/hdstore/joey/workspace/scala/akka-wechat/project" external.root.project.path="$MODULE_DIR$/.." external.system.id="SBT" sbt.imports="sbt._, Keys._, _root_.org.sbtidea.SbtIdeaPlugin._, _root_.spray.revolver.RevolverPlugin._, _root_.com.timushev.sbt.updates.UpdatesPlugin._, _root_.com.typesafe.sbt.SbtNativePackager._, _root_.net.virtualvoid.sbt.graph.Plugin._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin" sbt.resolvers="http://maven.oschina.net/content/groups/public/|maven|osc, https://oss.sonatype.org/content/repositories/snapshots/|maven|sonatype-snapshots, http://repo1.maven.org/maven2/|maven|public, http://repo.spray.io/|maven|spray, https://oss.sonatype.org/content/repositories/snapshots/|maven|Sonatype Snapshots, https://oss.sonatype.org/content/repositories/releases/|maven|sonatype-releases, /home/joey/.ivy2/cache|ivy|Local cache, http://repo.typesafe.com/typesafe/releases/|maven|Typesafe repository" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/../project/target/idea-classes" />
-    <output-test url="file://$MODULE_DIR$/../project/target/idea-test-classes" />
+    <output url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project/target/idea-classes" />
+    <output-test url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project/target/idea-test-classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../project">
-      <sourceFolder url="file://$MODULE_DIR$/../project" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../project/project/target" />
-      <excludeFolder url="file://$MODULE_DIR$/../project/target" />
+    <content url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project">
+      <sourceFolder url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project" isTestSource="false" />
+      <excludeFolder url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project/project/target" />
+      <excludeFolder url="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/project/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
