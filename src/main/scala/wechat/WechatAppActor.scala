@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 /**
  * Created by joey on 14-9-18.
  */
-class WechatAppActor(id: String) extends Actor{
+class WechatAppActor(id: Int) extends Actor{
   def activitySupervisor = context.actorSelection("/activitySupervisor")
   def receive:Receive = {
     case textMsg:WechatTextMsg =>
