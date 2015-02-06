@@ -2,6 +2,7 @@ package wechat
 
 import akka.actor.{Actor, Props}
 import bz.ActivitySupervisor.ActivityDetailQuery
+import bz.ClubSupervisor
 import wechat.model.WechatTextMsg
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
 
@@ -11,6 +12,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
  */
 class WechatAppActor(id: Int) extends Actor{
   def activitySupervisor = context.actorSelection("/activitySupervisor")
+  def clubSupervisor = context.actorSelection("/clubSupervisor")
   def receive:Receive = {
     case textMsg:WechatTextMsg =>
       textMsg match {
@@ -20,7 +22,7 @@ class WechatAppActor(id: Int) extends Actor{
           }
         case ClubCreateExportor(fClubCreate) =>
           fClubCreate onSuccess {
-            case cmd =>
+            case cmd => clubSupervisor forward ClubSupervisor.ClubCreateEvent(cmd.cb,cmd.user)
           }
 
 //        case ActivityCreateExportor(cmd) =>
