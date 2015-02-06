@@ -1,7 +1,6 @@
 package wechat
 
 import akka.actor.Actor
-import reactivemongo.api.MongoDriver
 import wechat.model.WechatMsg
 
 /**
@@ -12,14 +11,13 @@ import wechat.model.WechatMsg
  */
 
 class WechatAppSupervisor extends Actor {
-  val driver = new MongoDriver
 
   def receive: Receive = {
     case x:WechatMsg =>
       context.child(x.appId.toString) match {
         case Some(app) => app forward x.msg
         case None =>
-          val appProp = WechatApp.props(x.appId)
+          val appProp = WechatAppActor.props(x.appId)
           val app = context.actorOf(appProp,x.appId.toString)
           app forward x.msg
       }

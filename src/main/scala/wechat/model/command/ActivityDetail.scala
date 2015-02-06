@@ -1,8 +1,13 @@
 package wechat.model.command
 
+import bz.dao.UserDao
 import bz.model.User
 import wechat.model.WechatTextMsg
 import wechat.model.command.CmdRule.CmdRuleType
+import reactivemongo.extensions.dsl.BsonDsl._
+
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 
 /**
@@ -12,12 +17,15 @@ case class ActivityDetail(activityId:Int,user:User) extends ValidCmd
 
 object ActivityDetail extends CmdRule("ActivityDetail","""^ad (\d+)""",CmdRuleType.RegExpr){
 
-  def unapply(input:WechatTextMsg): Option[ActivityDetail]={
+  def unapply(input:WechatTextMsg): Option[Future[ActivityDetail]]={
     val re = pattern.r
     input.content.trim match {
       case re(id) =>
-        val u = User(null,null)
-        Some(ActivityDetail(id.toInt,u))
+        Some(
+          UserDao.findRandom("openId" $eq input.fromUserName) map {
+            case user:User => ActivityDetail(id.toInt, user)
+          }
+        )
       case _ => None
     }
   }

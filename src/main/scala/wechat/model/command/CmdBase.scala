@@ -1,6 +1,5 @@
 package wechat.model.command
 
-import wechat.model.command.CmdRule.CmdRuleType
 import wechat.model.command.CmdRule.CmdRuleType.RuleType
 
 
@@ -8,22 +7,8 @@ import wechat.model.command.CmdRule.CmdRuleType.RuleType
  * Created by joey on 15-1-30.
  * 1) 从数据库中读取rule并创建对象
  */
-abstract class CmdRule(val name:String,val pattern:String,val ruleType: RuleType){
-  val args:List[Any] = List.empty
-
-  def isMatch(input:String):Boolean = {
-    if(ruleType == CmdRuleType.PlainText){
-      input.trim == pattern
-    }else if(ruleType == CmdRuleType.RegExpr){
-      pattern.r.findFirstMatchIn(input).isEmpty
-    }else{
-      false
-    }
-  }
-}
-abstract class ValidCmd(){
-}
-
+abstract class CmdRule(val name:String,val pattern:String,val ruleType: RuleType)
+abstract class ValidCmd()
 
 
 object CmdRule{

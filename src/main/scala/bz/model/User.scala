@@ -1,7 +1,7 @@
 package bz.model
 
 import org.joda.time.DateTime
-import reactivemongo.bson.{Macros, BSONObjectID}
+import reactivemongo.bson.{BSONHandler, BSONDateTime, Macros, BSONObjectID}
 
 /**
  * Created by joey on 15-1-30.
@@ -22,5 +22,9 @@ case class User(
                  )
 
 object User {
+  implicit object BSONDateTimeHandler extends BSONHandler[BSONDateTime, DateTime] {
+    def read(time: BSONDateTime) = new DateTime(time.value)
+    def write(jdtime: DateTime) = BSONDateTime(jdtime.getMillis)
+  }
   implicit val userHandler = Macros.handler[User]
 }

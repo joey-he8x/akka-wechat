@@ -2,7 +2,6 @@ package core
 
 import akka.actor.{ActorSystem, Props}
 import bz.ActivitySupervisor
-import com.typesafe.config.ConfigFactory
 import wechat.{EchoActor, WechatAppSupervisor}
 
 trait Core {

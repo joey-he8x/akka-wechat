@@ -8,9 +8,9 @@ import reactivemongo.bson.{Macros, BSONObjectID}
 case class Club(
                  _id: BSONObjectID = BSONObjectID.generate,
                  name: String,
-                 creatorId: Option[BSONObjectID],
+                 creatorId: BSONObjectID,
                  limit: Double,
-                 members: List[String])
+                 members: List[String] = List())
 
 object Club{
   implicit val clubHandler = Macros.handler[Club]
