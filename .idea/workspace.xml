@@ -3,27 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2776ad0a-d432-47ff-bc04-de85edca5432" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/bz/model/App.scala" />
-      <change type="NEW" beforePath="" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ClubCreate.scala" />
-      <change type="NEW" beforePath="" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ClubSupervisor.scala" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/bz/dao/UserDao.scala" />
-      <change type="NEW" beforePath="" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/WechatApp.scala" />
-      <change type="NEW" beforePath="" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/dao/WechatAppDao.scala" />
-      <change type="DELETED" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/App.scala" afterPath="" />
-      <change type="MOVED" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatApp.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppActor.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityCreate.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityCreate.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityDetail.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityDetail.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ActivitySupervisor.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ActivitySupervisor.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/bz/model/Club.scala" afterPath="$PROJECT_DIR$/src/main/scala/bz/model/Club.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/Club.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/Club.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/CmdBase.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/CmdBase.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/QueryMyActivity.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/QueryMyActivity.scala" />
+      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/bz/model/User.scala" afterPath="$PROJECT_DIR$/src/main/scala/bz/model/User.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/User.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/User.scala" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppSupervisor.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppSupervisor.scala" />
       <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/akka-wechat-build.iml" afterPath="$PROJECT_DIR$/.idea_modules/akka-wechat-build.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea_modules/akka-wechat.iml" afterPath="$PROJECT_DIR$/.idea_modules/akka-wechat.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/core/core.scala" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/core/core.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="/mnt/hdstore/joey/workspace/scala/akka-wechat/.idea/workspace.xml" afterPath="/mnt/hdstore/joey/workspace/scala/akka-wechat/.idea/workspace.xml" />
@@ -71,60 +57,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityCreate.scala" pinned="false" current-in-tab="false">
-        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityCreate.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="592">
-              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-              <folding>
-                <element signature="e#30#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClubCreate.scala" pinned="false" current-in-tab="false">
-        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ClubCreate.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="608">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WechatAppActor.scala" pinned="false" current-in-tab="false">
-        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppActor.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="800">
-              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-              <folding>
-                <element signature="e#16#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitySupervisor.scala" pinned="false" current-in-tab="false">
-        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ActivitySupervisor.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-              <folding>
-                <element signature="e#12#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClubSupervisor.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClubSupervisor.scala" pinned="false" current-in-tab="false">
         <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ClubSupervisor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5639413" vertical-offset="3" max-vertical-offset="512">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-              <folding>
-                <element signature="e#12#51#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="512">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,14 +77,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WechatAppSupervisor.scala" pinned="false" current-in-tab="false">
-        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppSupervisor.scala">
+      <file leaf-file-name="WechatAuth.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="496">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="976">
+              <caret line="49" column="10" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="10" />
               <folding>
-                <element signature="e#16#39#0" expanded="true" />
+                <element signature="e#51#77#0" expanded="true" />
+                <element signature="e#404#428#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/core/core.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="624">
+              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+              <folding>
+                <element signature="e#14#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rest.scala" pinned="false" current-in-tab="true">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5366876" vertical-offset="0" max-vertical-offset="477">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#13#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WechatApp.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/WechatApp.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WechatAppDao.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/dao/WechatAppDao.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WechatProtocolSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/test/scala/WechatProtocolSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1296">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Activity.scala" pinned="false" current-in-tab="false">
+        <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/Activity.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="224">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,7 +196,6 @@
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/User.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityDetail.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/QueryMyActivity.scala" />
-        <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/CmdBase.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/model/command/ActivityCreate.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/Club.scala" />
@@ -202,6 +204,8 @@
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/wechat/WechatAppActor.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ActivitySupervisor.scala" />
         <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ClubSupervisor.scala" />
+        <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala" />
+        <option value="/mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala" />
       </list>
     </option>
   </component>
@@ -494,6 +498,36 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WechatProtocolSpec.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -603,15 +637,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="command" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -637,42 +663,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="command" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClubCreate.scala" />
+              <option name="myItemId" value="core.scala" />
               <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="akka-wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="akka-wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -729,6 +725,100 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ActivitySupervisor.scala" />
               <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WechatApp.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="akka-wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1257,7 +1347,7 @@
       <workItem from="1422587029516" duration="18835000" />
       <workItem from="1422932740674" duration="1065000" />
       <workItem from="1423014526476" duration="11254000" />
-      <workItem from="1423127660530" duration="13617000" />
+      <workItem from="1423127660530" duration="15648000" />
     </task>
     <task id="LOCAL-00001" summary="improving">
       <created>1421213389439</created>
@@ -1269,7 +1359,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185589000" />
+    <option name="totallyTimeSpent" value="187620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-28" width="1366" height="796" extended-state="6" />
@@ -1342,20 +1432,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/wechat/model/WechatMsg.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="1088">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/core/core.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="576">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/wechat/WechatApp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="368">
@@ -1419,13 +1495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18691589" vertical-offset="0" max-vertical-offset="428">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="1040">
@@ -1473,16 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/dao/WechatAppDao.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding>
-            <element signature="e#16#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/DefaultJsonFormats.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="1088">
@@ -1514,16 +1573,6 @@
         <state vertical-scroll-proportion="0.9389671" vertical-offset="0" max-vertical-offset="688">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/core/core.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="624">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <element signature="e#14#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1627,14 +1676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/WechatApp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/io.spray/spray-routing_2.11/bundles/spray-routing_2.11-1.3.1.jar!/spray/routing/directives/RouteDirectives.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18223235" vertical-offset="0" max-vertical-offset="439">
@@ -1733,14 +1774,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala">
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ClubSupervisor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4827586" vertical-offset="0" max-vertical-offset="944">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <element signature="e#51#77#0" expanded="true" />
-            <element signature="e#404#428#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="512">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/Activity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="224">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/test/scala/WechatProtocolSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1296">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1752,12 +1806,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/ClubSupervisor.scala">
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/dao/WechatAppDao.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5639413" vertical-offset="3" max-vertical-offset="512">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/bz/model/WechatApp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/core/core.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="624">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
           <folding>
-            <element signature="e#12#51#0" expanded="true" />
+            <element signature="e#14#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/api/WechatAuth.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="976">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="10" />
+          <folding>
+            <element signature="e#51#77#0" expanded="true" />
+            <element signature="e#404#428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/hdstore/joey/workspace/scala/akka-wechat/src/main/scala/web/Rest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5366876" vertical-offset="0" max-vertical-offset="477">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#13#36#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -46,11 +46,13 @@ object WechatAuth{
   type WechatAuthChain = String :: Long :: String :: HNil
   case class WechatAuthFailRejection(parameters: WechatAuthChain) extends Rejection
   //private val tokenList = Map(1 -> "mJB53wkOCSrpQWklPOyLj1B8JcKh70Cn")
-  private var tokenList:Map[Int,String] = Map.empty
-  WechatAppDao.findAll().map({
-    case apps:List[WechatApp] =>
-      val tmpList = mutable.Map.empty[Int,String]
-      apps.foreach(app => tmpList(app._id)=app.secret)
-      tokenList = tmpList.toMap
-  }).onFailure({case e=> logger.error(e.getMessage)})
+  var tokenList:Map[Int,String] = Map.empty
+  def load: Unit = {
+    WechatAppDao.findAll().map({
+      case apps:List[WechatApp] =>
+        val tmpList = mutable.Map.empty[Int,String]
+        apps.foreach(app => tmpList(app._id)=app.secret)
+        tokenList = tmpList.toMap
+    }).onFailure({case e=> logger.error(e.getMessage)})
+  }
 }
