@@ -7,7 +7,7 @@ import bz.dao.UserDao
 import bz.model.User
 import org.joda.time.DateTime
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
-import wechat.model.{WechatEventMsg, WechatTextMsg}
+import wechat.model.{WechatTextResponse, WechatEventMsg, WechatTextMsg}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
@@ -38,7 +38,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
               log.info("failed to build ClubCreateEvent")
               sender ! "failed to build ClubCreateEvent"
           }
-        case _ => sender ! "not recognized"
+        case _ => sender ! new WechatTextResponse(textMsg.fromUserName,textMsg.toUserName,DateTime.now().getMillis / 1000,"text","not recognized")
 
       }
     case e:WechatEventMsg if e.event=="subscribe" =>

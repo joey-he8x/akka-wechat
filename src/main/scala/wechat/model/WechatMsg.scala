@@ -60,3 +60,6 @@ case class WechatGeoEventMsg(toUserName:String,fromUserName:String,createTime:Da
   extends BaseWechatMsg()
 case class UnknownMsg(raw: NodeSeq)
   extends BaseWechatMsg
+
+abstract class WechatResponse
+class WechatTextResponse(toUserName:String,fromUserName:String,createTime:Long,msgType:String,content:String)
