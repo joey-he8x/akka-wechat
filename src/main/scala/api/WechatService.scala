@@ -33,6 +33,13 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
           handleWith {
             xml:NodeSeq =>
               (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
+              <xml>
+                <ToUserName>{(xml \ "FromUserName").text}</ToUserName>
+                <FromUserName>{(xml \ "ToUserName").text}</FromUserName>
+                <CreateTime>{(new DateTime).toDate.getTime / 1000}</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[hello]]></Content>
+              </xml>
             }
         }
       }
