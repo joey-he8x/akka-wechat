@@ -16,7 +16,7 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
 
   import scala.concurrent.duration._
   import akka.pattern.ask
-  implicit val timeout = Timeout(2.seconds)
+  implicit val timeout = Timeout(5.seconds)
 
 
   val route =
@@ -31,7 +31,7 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
         post{
           handleWith {
             xml:NodeSeq =>
-              (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
+              (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[String]
             }
         }
       }
