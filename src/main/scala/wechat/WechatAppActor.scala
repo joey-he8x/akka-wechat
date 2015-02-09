@@ -33,6 +33,11 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
               log.info("forward ClubCreateEvent")
               clubSupervisor forward ClubSupervisor.ClubCreateEvent(cmd.cb,cmd.user)
           }
+          fClubCreate onFailure {
+            case e =>
+              log.info("failed to build ClubCreateEvent")
+              sender ! "failed to build ClubCreateEvent"
+          }
         case _ => sender ! "该命令不正确"
 
 //        case ActivityCreateExportor(cmd) =>
