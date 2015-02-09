@@ -40,10 +40,6 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
           }
         case _ => sender ! "not recognized"
 
-//        case ActivityCreateExportor(cmd) =>
-//          activitySupervisor
-//        case QueryMyActivity(cmd) => cmd
-
       }
     case e:WechatEventMsg if e.event=="subscribe" =>
       log.info("recognize subscribe event")

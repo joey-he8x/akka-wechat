@@ -21,7 +21,8 @@ class WechatAppSupervisor(activitySupervisor: ActorRef,clubSupervisor: ActorRef)
           val appProp = WechatAppActor.props(x.appId,activitySupervisor,clubSupervisor)
           val app = context.actorOf(appProp,x.appId.toString)
           log.info("forward message")
-          app forward x.msg
+          //app forward x.msg
+          sender ! "received"
       }
   }
 }
