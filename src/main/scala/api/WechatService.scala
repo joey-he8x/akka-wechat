@@ -7,7 +7,6 @@ import wechat.model.{WechatMsg, WechatMsgFormator}
 
 import scala.concurrent.ExecutionContext
 import scala.xml.NodeSeq
-import org.joda.time.DateTime
 
 /**
  * Created by joey on 14-8-27.
@@ -15,8 +14,9 @@ import org.joda.time.DateTime
 class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with WechatAuth {
 
-  import scala.concurrent.duration._
   import akka.pattern.ask
+
+import scala.concurrent.duration._
   implicit val timeout = Timeout(5.seconds)
 
 
@@ -33,13 +33,13 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
           handleWith {
             xml:NodeSeq =>
               (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
-              <xml>
-                <ToUserName>{(xml \ "FromUserName").text}</ToUserName>
-                <FromUserName>{(xml \ "ToUserName").text}</FromUserName>
-                <CreateTime>{(new DateTime).toDate.getTime / 1000}</CreateTime>
-                <MsgType><![CDATA[text]]></MsgType>
-                <Content><![CDATA[hello]]></Content>
-              </xml>
+//              <xml>
+//                <ToUserName>{(xml \ "FromUserName").text}</ToUserName>
+//                <FromUserName>{(xml \ "ToUserName").text}</FromUserName>
+//                <CreateTime>{(new DateTime).toDate.getTime / 1000}</CreateTime>
+//                <MsgType><![CDATA[text]]></MsgType>
+//                <Content><![CDATA[hello]]></Content>
+//              </xml>
             }
         }
       }
