@@ -17,9 +17,10 @@ class WechatAppSupervisor(activitySupervisor: ActorRef,clubSupervisor: ActorRef)
       context.child(x.appId.toString) match {
         case Some(app) => app forward x.msg
         case None =>
-          log.debug(s"create wechatapp actor[$x.appId]")
+          log.info(s"create wechatapp actor[$x.appId]")
           val appProp = WechatAppActor.props(x.appId,activitySupervisor,clubSupervisor)
           val app = context.actorOf(appProp,x.appId.toString)
+          log.info("forward message")
           app forward x.msg
       }
   }
