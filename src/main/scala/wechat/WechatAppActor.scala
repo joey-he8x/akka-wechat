@@ -1,6 +1,6 @@
 package wechat
 
-import akka.actor.{Actor, Props}
+import akka.actor.{Actor, ActorRef, Props}
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
 import wechat.model.WechatTextMsg
@@ -10,9 +10,9 @@ import scala.concurrent.ExecutionContext.Implicits.global
 /**
  * Created by joey on 14-9-18.
  */
-class WechatAppActor(id: Int) extends Actor{
-  def activitySupervisor = context.actorSelection("/user/activitySupervisor")
-  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
+class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorRef) extends Actor{
+//  def activitySupervisor = context.actorSelection("/user/activitySupervisor")
+//  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
   def receive:Receive = {
     case textMsg:WechatTextMsg =>
       textMsg match {
@@ -43,5 +43,5 @@ class WechatAppActor(id: Int) extends Actor{
 }
 
 object WechatAppActor{
-  def props(appId: Int): Props = Props(classOf[WechatAppActor],appId)
+  def props(appId: Int,activitySupervisor: ActorRef,clubSupervisor: ActorRef): Props = Props(classOf[WechatAppActor],appId,activitySupervisor,clubSupervisor)
 }

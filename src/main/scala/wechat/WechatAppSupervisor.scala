@@ -1,6 +1,6 @@
 package wechat
 
-import akka.actor.Actor
+import akka.actor.{Props, ActorRef, ActorLogging, Actor}
 import wechat.model.WechatMsg
 
 /**
@@ -10,16 +10,20 @@ import wechat.model.WechatMsg
  * 2）负责supervisor所有wechatApp，创建他们，并处理异常
  */
 
-class WechatAppSupervisor extends Actor {
+class WechatAppSupervisor(activitySupervisor: ActorRef,clubSupervisor: ActorRef) extends Actor with ActorLogging{
 
   def receive: Receive = {
     case x:WechatMsg =>
       context.child(x.appId.toString) match {
         case Some(app) => app forward x.msg
         case None =>
-          val appProp = WechatAppActor.props(x.appId)
+          log.debug(s"create wechatapp actor[$x.appId]")
+          val appProp = WechatAppActor.props(x.appId,activitySupervisor,clubSupervisor)
           val app = context.actorOf(appProp,x.appId.toString)
           app forward x.msg
       }
   }
+}
+object WechatAppSupervisor{
+  def props(activitySupervisor: ActorRef,clubSupervisor: ActorRef): Props = Props(classOf[WechatAppSupervisor],activitySupervisor,clubSupervisor)
 }

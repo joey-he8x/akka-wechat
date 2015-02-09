@@ -26,9 +26,9 @@ trait Core {
 trait CoreActors {
   this: Core =>
     val echo = system.actorOf(Props[EchoActor])
-    val wechat = system.actorOf(Props[WechatAppSupervisor],"wechatAppSupervisor")
     val activitySupervisor = system.actorOf(Props[ActivitySupervisor],"activitySupervisor")
     val clubSupervisor = system.actorOf(Props[ClubSupervisor],"clubSupervisor")
+    val wechat = system.actorOf(WechatAppSupervisor.props(activitySupervisor,clubSupervisor),"wechatAppSupervisor")
 
   //  val registration = system.actorOf(Props[RegistrationActor])
 //  val messenger    = system.actorOf(Props[MessengerActor])
