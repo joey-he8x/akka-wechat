@@ -11,8 +11,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
  * Created by joey on 14-9-18.
  */
 class WechatAppActor(id: Int) extends Actor{
-  def activitySupervisor = context.actorSelection("/activitySupervisor")
-  def clubSupervisor = context.actorSelection("/clubSupervisor")
+  def activitySupervisor = context.actorSelection("/user/activitySupervisor")
+  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
   def receive:Receive = {
     case textMsg:WechatTextMsg =>
       textMsg match {

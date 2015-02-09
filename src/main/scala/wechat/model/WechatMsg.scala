@@ -14,7 +14,7 @@ object WechatMsgFormator{
     case x:NodeSeq if (x \ "MsgType").text == "text" => {
       val toUsername = (x \ "ToUserName").text
       val fromUserName = (x \ "FromUserName").text
-      val createTime = new DateTime((x \ "CreateTime").text.toLong)
+      val createTime = new DateTime((x \ "CreateTime").text.toLong * 1000)
       val msgType = (x \ "MsgType").text
       val content = (x \ "Content").text
       val msgId = (x \ "MsgId").text.toLong
@@ -23,7 +23,7 @@ object WechatMsgFormator{
     case x:NodeSeq if (x \ "MsgType").text == "event" => {
       val toUsername = (x \ "ToUserName").text
       val fromUserName = (x \ "FromUserName").text
-      val createTime = new DateTime((x \ "CreateTime").text.toLong)
+      val createTime = new DateTime((x \ "CreateTime").text.toLong * 1000)
       val msgType = (x \ "MsgType").text
       val content = (x \ "Content").text
       val event = (x \ "Event").text
@@ -34,7 +34,7 @@ object WechatMsgFormator{
     case x:NodeSeq if (x \ "MsgType").text == "event" && (x \ "Latitude").nonEmpty => {
       val toUsername = (x \ "ToUserName").text
       val fromUserName = (x \ "FromUserName").text
-      val createTime = new DateTime((x \ "CreateTime").text.toLong)
+      val createTime = new DateTime((x \ "CreateTime").text.toLong * 1000)
       val msgType = (x \ "MsgType").text
       val content = (x \ "Content").text
       val event = (x \ "Event").text
