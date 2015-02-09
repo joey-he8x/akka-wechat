@@ -38,7 +38,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
               log.info("failed to build ClubCreateEvent")
               sender ! "failed to build ClubCreateEvent"
           }
-        case _ => sender ! "该命令不正确"
+        case _ => sender ! "not recognized"
 
 //        case ActivityCreateExportor(cmd) =>
 //          activitySupervisor
