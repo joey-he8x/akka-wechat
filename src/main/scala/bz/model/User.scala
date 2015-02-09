@@ -12,13 +12,13 @@ case class User(
                  appId: BSONObjectID,
                  subscribeTime: DateTime,
                  lastUpdateTime: DateTime,
-                 nickname: Option[String],
-                 sex: Option[Int],
-                 city: Option[String],
-                 province: Option[String],
-                 country: Option[String],
-                 language: Option[String],
-                 headimgurl: Option[String]
+                 nickname: Option[String] = None,
+                 sex: Option[Int] = None,
+                 city: Option[String] = None,
+                 province: Option[String] = None,
+                 country: Option[String] = None,
+                 language: Option[String] = None,
+                 headimgurl: Option[String] = None
                  )
 
 object User {

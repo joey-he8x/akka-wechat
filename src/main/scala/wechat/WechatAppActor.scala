@@ -3,10 +3,16 @@ package wechat
 import akka.actor.{ActorLogging, Actor, ActorRef, Props}
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
-import wechat.model.WechatTextMsg
+import bz.dao.UserDao
+import bz.model.User
+import org.joda.time.DateTime
+import reactivemongo.bson.BSONObjectID
+import wechat.model.{WechatEventMsg, WechatTextMsg}
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{Success, Failure}
+
 /**
  * Created by joey on 14-9-18.
  */
@@ -35,7 +41,16 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
 //        case QueryMyActivity(cmd) => cmd
 
       }
-
+    case e:WechatEventMsg if e.event=="subscribe" =>
+      log.info("recognize subscribe event")
+      val u = User(openId = e.fromUserName,appId = BSONObjectID(id.toString),subscribeTime = new DateTime(),lastUpdateTime = new DateTime)
+      UserDao.insert(u).onComplete {
+        case Failure(e) =>
+          log.error("Fail to insert User",e.getMessage)
+        case Success(lastError) =>
+          log.info("subscribe success")
+          sender ! "ok"
+      }
   }
 
 //  def exec:PartialFunction[WechatTextMsg,Any] = {
