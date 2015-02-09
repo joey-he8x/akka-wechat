@@ -3,7 +3,6 @@ package api
 import akka.actor.ActorRef
 import akka.util.Timeout
 import spray.routing.Directives
-import wechat.model.{WechatMsg, WechatMsgFormator}
 
 import scala.concurrent.ExecutionContext
 import scala.xml.NodeSeq
@@ -15,7 +14,6 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
   extends Directives with WechatAuth {
 
   import scala.concurrent.duration._
-  import akka.pattern.ask
   implicit val timeout = Timeout(5.seconds)
 
 
@@ -31,7 +29,8 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
         post{
           handleWith {
             xml:NodeSeq =>
-              (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[String]
+              //(wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[String]
+              xml
             }
         }
       }
