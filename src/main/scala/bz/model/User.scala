@@ -9,7 +9,7 @@ import reactivemongo.bson.{BSONHandler, BSONDateTime, Macros, BSONObjectID}
 case class User(
                  _id: BSONObjectID = BSONObjectID.generate,
                  openId: String,
-                 appId: BSONObjectID,
+                 appId: Int,
                  subscribeTime: DateTime,
                  lastUpdateTime: DateTime,
                  nickname: Option[String] = None,

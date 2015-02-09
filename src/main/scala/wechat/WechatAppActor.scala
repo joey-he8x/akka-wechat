@@ -1,17 +1,16 @@
 package wechat
 
-import akka.actor.{ActorLogging, Actor, ActorRef, Props}
+import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
 import bz.dao.UserDao
 import bz.model.User
 import org.joda.time.DateTime
-import reactivemongo.bson.BSONObjectID
-import wechat.model.{WechatEventMsg, WechatTextMsg}
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
+import wechat.model.{WechatEventMsg, WechatTextMsg}
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Success, Failure}
+import scala.util.{Failure, Success}
 
 /**
  * Created by joey on 14-9-18.
@@ -43,7 +42,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
       }
     case e:WechatEventMsg if e.event=="subscribe" =>
       log.info("recognize subscribe event")
-      val u = User(openId = e.fromUserName,appId = BSONObjectID(id.toString),subscribeTime = new DateTime(),lastUpdateTime = new DateTime)
+      val u = User(openId = e.fromUserName,appId = id,subscribeTime = new DateTime(),lastUpdateTime = new DateTime)
       UserDao.insert(u).onComplete {
         case Failure(e) =>
           log.error("Fail to insert User",e.getMessage)
