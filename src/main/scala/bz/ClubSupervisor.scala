@@ -12,6 +12,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class ClubSupervisor extends Actor with ActorLogging{
   def receive = {
     case ClubSupervisor.ClubCreateEvent(cb,user) =>
+      log.info(s"receive ClubCreateEvent: $cb,$user")
       ClubDao.insert(cb).onComplete {
         case Failure(e) =>
           log.error("Fail to insert Club",e.getMessage)
