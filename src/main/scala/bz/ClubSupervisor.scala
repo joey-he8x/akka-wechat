@@ -14,13 +14,14 @@ class ClubSupervisor extends Actor with ActorLogging{
   def receive = {
     case ClubSupervisor.ClubCreateEvent(msg,cb,user) =>
       implicit val m = msg
+      val boundSender = sender
       log.info(s"receive ClubCreateEvent: $cb,$user")
       ClubDao.insert(cb).onComplete {
         case Failure(e) =>
           log.error("Fail to insert Club",e.getMessage)
-          sender ! new WechatTextResponse("创建Club失败")
+          boundSender ! new WechatTextResponse("创建Club失败")
         case Success(lastError) =>
-          sender ! new WechatTextResponse(s"成功创建Club:$cb")
+          boundSender ! new WechatTextResponse(s"成功创建Club:$cb")
       }
   }
 }
