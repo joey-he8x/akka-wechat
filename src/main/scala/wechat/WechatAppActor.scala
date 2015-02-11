@@ -29,6 +29,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
           }
         case ClubCreateExportor(fClubCreate) =>
           log.info("recognize ClubCreate")
+          val boundSender = sender
           fClubCreate onSuccess {
             case cmd =>
               log.info("forward ClubCreateEvent")
@@ -37,7 +38,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
           fClubCreate onFailure {
             case e =>
               log.info("failed to build ClubCreateEvent")
-              sender ! new WechatTextResponse("failed to build ClubCreateEvent")
+              boundSender ! new WechatTextResponse("failed to build ClubCreateEvent")
           }
         case _ => sender ! new WechatTextResponse("not recognized")
 

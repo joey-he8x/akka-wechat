@@ -22,7 +22,7 @@ object ClubCreateExportor extends CmdRule("ClubCreate","""^cc (\w+)""",CmdRuleTy
       case re(name) =>
         Some(
           UserDao.findRandom("openId" $eq input.fromUserName) map {
-            case user:User =>
+            case Some(user:User) =>
               val cb = new Club(name=name,creatorId = user._id,limit=50)
               ClubCreate(cb,user)
           }
