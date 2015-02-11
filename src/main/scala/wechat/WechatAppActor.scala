@@ -20,6 +20,7 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
 //  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
   def receive:Receive = {
     case textMsg:WechatTextMsg =>
+      implicit val ori = textMsg
       textMsg match {
         case ActivityDetail(futureCmd) =>
           log.info("recognize ActivityDetail")
@@ -31,14 +32,14 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
           fClubCreate onSuccess {
             case cmd =>
               log.info("forward ClubCreateEvent")
-              clubSupervisor forward ClubSupervisor.ClubCreateEvent(cmd.cb,cmd.user)
+              clubSupervisor forward ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
           }
           fClubCreate onFailure {
             case e =>
               log.info("failed to build ClubCreateEvent")
-              sender ! "failed to build ClubCreateEvent"
+              sender ! new WechatTextResponse("failed to build ClubCreateEvent")
           }
-        case _ => sender ! new WechatTextResponse(textMsg.fromUserName,textMsg.toUserName,DateTime.now().getMillis / 1000,"text","not recognized")
+        case _ => sender ! new WechatTextResponse("not recognized")
 
       }
     case e:WechatEventMsg if e.event=="subscribe" =>

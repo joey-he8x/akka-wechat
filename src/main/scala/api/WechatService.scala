@@ -2,8 +2,11 @@ package api
 
 import akka.actor.ActorRef
 import akka.util.Timeout
+import spray.http.MediaTypes._
+import spray.httpx.unmarshalling._
+import spray.httpx.marshalling._
 import spray.routing.Directives
-import wechat.model.{WechatMsg, WechatMsgFormator}
+import wechat.model.{WechatResponse, BaseWechatMsg, WechatMsg, WechatMsgFormator}
 
 import scala.concurrent.ExecutionContext
 import scala.xml.NodeSeq
@@ -16,8 +19,14 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
 
   import akka.pattern.ask
 
-import scala.concurrent.duration._
+  import scala.concurrent.duration._
   implicit val timeout = Timeout(5.seconds)
+
+  implicit val wechatMsgUnmarshaller =
+    Unmarshaller.delegate[NodeSeq,BaseWechatMsg](`text/xml`)(WechatMsgFormator.apply)
+
+  implicit val wechatmsgMarshaller =
+    Marshaller.delegate[WechatResponse,NodeSeq](`text/xml`)(_.toXml)
 
 
   val route =
@@ -31,8 +40,8 @@ import scala.concurrent.duration._
         } ~
         post{
           handleWith {
-            xml:NodeSeq =>
-              (wechat ? WechatMsg(appId,WechatMsgFormator(xml))).mapTo[NodeSeq]
+            msg:BaseWechatMsg =>
+              (wechat ? WechatMsg(appId,msg)).mapTo[WechatResponse]
 //              <xml>
 //                <ToUserName>{(xml \ "FromUserName").text}</ToUserName>
 //                <FromUserName>{(xml \ "ToUserName").text}</FromUserName>

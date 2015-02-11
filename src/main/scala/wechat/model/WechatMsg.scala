@@ -2,7 +2,7 @@ package wechat.model
 
 import com.github.nscala_time.time.Imports._
 
-import scala.xml.NodeSeq
+import scala.xml.{PCData, NodeSeq}
 
 /**
  * Created by joey on 15-1-13.
@@ -49,17 +49,38 @@ object WechatMsgFormator{
   def apply(data:NodeSeq):BaseWechatMsg = {
     toWechatMsg(data)
   }
+
 }
 
 abstract class BaseWechatMsg
+trait ValidWechatMsg{
+  def toUserName:String
+  def fromUserName:String
+  def createTime:DateTime
+  def msgType:String
+}
+
 case class WechatTextMsg(toUserName:String,fromUserName:String,createTime:DateTime,msgType:String,content:String,msgId:Long)
-  extends BaseWechatMsg
+  extends BaseWechatMsg with ValidWechatMsg
 case class WechatEventMsg(toUserName:String,fromUserName:String,createTime:DateTime,msgType:String,event:String,eventKey:String,ticket:String)
-  extends BaseWechatMsg
+  extends BaseWechatMsg with ValidWechatMsg
 case class WechatGeoEventMsg(toUserName:String,fromUserName:String,createTime:DateTime,msgType:String,event:String,latitude:Double,longitude:Double,precision:Double)
-  extends BaseWechatMsg()
+  extends BaseWechatMsg with ValidWechatMsg
 case class UnknownMsg(raw: NodeSeq)
   extends BaseWechatMsg
 
-abstract class WechatResponse
-class WechatTextResponse(toUserName:String,fromUserName:String,createTime:Long,msgType:String,content:String)
+abstract class WechatResponse{
+  def toXml:NodeSeq
+}
+class WechatTextResponse(toUserName:String,fromUserName:String,createTime:Long,content:String) extends WechatResponse{
+  def this(content:String)(implicit req:ValidWechatMsg) = this(req.fromUserName,req.toUserName,DateTime.now.getMillis / 1000,content)
+  def toXml = {
+    <xml>
+      <ToUserName>{toUserName}</ToUserName>
+      <FromUserName>{fromUserName}</FromUserName>
+      <CreateTime>{createTime}</CreateTime>
+      <MsgType><![CDATA[text]]></MsgType>
+      <Content>{PCData(content)}</Content>
+    </xml>
+  }
+}
