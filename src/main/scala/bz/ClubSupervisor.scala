@@ -15,7 +15,6 @@ class ClubSupervisor extends Actor with ActorLogging{
   def receive = {
     case ClubSupervisor.ClubCreateEvent(msg,cb,user) =>
       implicit val m = msg
-      val boundSender = sender
       log.info(s"receive ClubCreateEvent: $cb,$user")
       val promise = ClubDao.insert(cb).map{
         e =>

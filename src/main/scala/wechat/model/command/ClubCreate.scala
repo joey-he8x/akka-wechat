@@ -14,7 +14,7 @@ import scala.concurrent.Future
  */
 case class ClubCreate(cb:Club,user:User) extends ValidCmd
 
-object ClubCreateExportor extends CmdRule("ClubCreate","""^cc (\w+)""",CmdRuleType.RegExpr){
+object ClubCreateExportor extends CmdRule("ClubCreate","""^cc\s+(.+)""",CmdRuleType.RegExpr){
 
   def unapply(input:WechatTextMsg): Option[Future[ClubCreate]]={
     val re = pattern.r

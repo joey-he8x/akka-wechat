@@ -1,6 +1,8 @@
 package wechat
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
+import akka.pattern._
+import akka.util.Timeout
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
 import bz.dao.UserDao
@@ -10,7 +12,9 @@ import wechat.model.command.{ActivityDetail, ClubCreateExportor}
 import wechat.model.{WechatTextResponse, WechatEventMsg, WechatTextMsg}
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 import scala.util.{Failure, Success}
+
 
 /**
  * Created by joey on 14-9-18.
@@ -29,17 +33,25 @@ class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorR
           }
         case ClubCreateExportor(fClubCreate) =>
           log.info("recognize ClubCreate")
-          val boundSender = sender
-          fClubCreate onSuccess {
-            case cmd =>
-              log.info("forward ClubCreateEvent")
-              clubSupervisor forward ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
-          }
-          fClubCreate onFailure {
+          implicit val timeout = Timeout(5 seconds)
+          val q = fClubCreate.flatMap {
+            cmd => clubSupervisor ? ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
+          }.recover{
             case e =>
               log.info("failed to build ClubCreateEvent")
-              boundSender ! new WechatTextResponse("failed to build ClubCreateEvent")
+              new WechatTextResponse("failed to build ClubCreateEvent")
           }
+          q pipeTo sender
+//          fClubCreate onSuccess {
+//            case cmd =>
+//              log.info("forward ClubCreateEvent")
+//              clubSupervisor forward ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
+//          }
+//          fClubCreate onFailure {
+//            case e =>
+//              log.info("failed to build ClubCreateEvent")
+//              boundSender ! new WechatTextResponse("failed to build ClubCreateEvent")
+//          }
         case _ => sender ! new WechatTextResponse("not recognized")
 
       }
