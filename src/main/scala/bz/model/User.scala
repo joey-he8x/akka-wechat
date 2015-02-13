@@ -10,7 +10,7 @@ case class User(
                  _id: BSONObjectID = BSONObjectID.generate,
                  openId: String,
                  appId: Int,
-                 subscribeTime: DateTime,
+                 subscribeTime: Option[DateTime] = None,
                  lastUpdateTime: DateTime,
                  nickname: Option[String] = None,
                  sex: Option[Int] = None,

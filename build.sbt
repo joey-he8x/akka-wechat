@@ -19,7 +19,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.6" % "test"
 
 libraryDependencies ++= {
   val akkaVersion  = "2.3.2"
-  val sprayVersion = "1.3.1"
+  val sprayVersion = "1.3.1-mod"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion
       exclude ("org.scala-lang" , "scala-library"),
@@ -29,7 +29,7 @@ libraryDependencies ++= {
     "ch.qos.logback" % "logback-classic" % "1.0.13",
     "org.reactivemongo" %% "reactivemongo" % "0.10.5.akka23-SNAPSHOT",
     "org.reactivemongo" %% "reactivemongo-extensions-bson" % "0.10.5.0.0.akka23",
-    "io.spray" %% "spray-can" % sprayVersion,
+    "io.spray" %% "spray-can" % sprayVersion exclude("io.spray","spray-http_2.11"),
     "io.spray" %% "spray-routing" % sprayVersion,
     "io.spray" %% "spray-json" % "1.2.6" exclude ("org.scala-lang" , "scala-library"),
     "io.spray" %% "spray-testkit" % sprayVersion % "test",
@@ -56,4 +56,3 @@ crossPaths := false
 
 //conflictManager := ConflictManager.loose
 
-net.virtualvoid.sbt.graph.Plugin.graphSettings

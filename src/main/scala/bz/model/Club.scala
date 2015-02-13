@@ -8,7 +8,7 @@ import reactivemongo.bson.{Macros, BSONObjectID}
 case class Club(
                  _id: BSONObjectID = BSONObjectID.generate,
                  name: String,
-                 creatorId: BSONObjectID,
+                 creatorId: String,
                  limit: Double,
                  members: List[String] = List())
 

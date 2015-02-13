@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
  */
 case class ActivityCreate(ac:Activity,user:User) extends ValidCmd
 
-object ActivityCreateExportor extends CmdRule("ActivityCreate","""^ac (\w+)""",CmdRuleType.RegExpr){
+object ActivityCreateExportor extends CmdRule("ActivityCreate","""^ac\s+(.+)""",CmdRuleType.RegExpr){
 
   def unapply(input:WechatTextMsg): Option[Future[ActivityCreate]]={
     val re = pattern.r

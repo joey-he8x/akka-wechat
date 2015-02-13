@@ -4,6 +4,8 @@ import core.{Core, CoreActors}
 import org.specs2.mutable.Specification
 import spray.http.HttpHeaders.RawHeader
 import spray.http._
+import spray.http.MediaTypes._
+import spray.http.HttpCharsets._
 import spray.routing.HttpService
 import spray.testkit.Specs2RouteTest
 
@@ -32,19 +34,6 @@ class WechatProtocolTest extends Specification with Specs2RouteTest with HttpSer
         handled must beFalse
       }
     }
-//    "return valid xml" in {
-//      Post("/wx-api/1?signature=0f02c83641a0cbd46c17eac46d5ed2d7f26d307d&timestamp=1409817535&nonce=457762123",
-//      HttpEntity(MediaTypes.`text/xml`,
-//        """<xml><ToUserName><![CDATA[gh_b8159b34bcd2]]></ToUserName>
-//          |<FromUserName><![CDATA[o9XkzuBBGMtnaM4zAJhKnQjMlWhE]]></FromUserName>
-//          |<CreateTime>1410493716</CreateTime>
-//          |<MsgType><![CDATA[text]]></MsgType>
-//          |<Content><![CDATA[hello]]></Content>
-//          |<MsgId>6058024381633874779</MsgId>
-//          |</xml>""")) ~> addHeader("Content-Type","text/xml") ~> RouteContainer.routes ~> check {
-//        responseAs[String].contains("<![CDATA[not recognized]]>") must beTrue
-//      }
-//    }
     "return valid xml" in {
       HttpRequest(
         method = HttpMethods.POST,
@@ -61,20 +50,20 @@ class WechatProtocolTest extends Specification with Specs2RouteTest with HttpSer
         responseAs[String].contains("<![CDATA[not recognized]]>") must beTrue
       }
     }
-//    "return valid xml when create cc" in {
-//      Post("/wx-api/1?signature=0f02c83641a0cbd46c17eac46d5ed2d7f26d307d&timestamp=1409817535&nonce=457762123",
-//        HttpEntity(ContentType(`text/xml`, `UTF-8`),
-//          """<?xml version="1.0" encoding="UTF-8"?><xml><ToUserName><![CDATA[gh_b8159b34bcd2]]></ToUserName>
-//            |<FromUserName><![CDATA[o9XkzuBBGMtnaM4zAJhKnQjMlWhE]]></FromUserName>
-//            |<CreateTime>1410493716</CreateTime>
-//            |<MsgType><![CDATA[text]]></MsgType>
-//            |<Content><![CDATA[cc abcd中文]]></Content>
-//            |<MsgId>6058024381633874779</MsgId>
-//            |</xml>""")) ~> RouteContainer.routes ~> check {
-//        println(responseAs[String])
-//        responseAs[String].contains("成功创建Club") must beTrue
-//      }
-//    }
+    "return valid xml when create cc" in {
+      Post("/wx-api/1?signature=0f02c83641a0cbd46c17eac46d5ed2d7f26d307d&timestamp=1409817535&nonce=457762123",
+        HttpEntity(ContentType(`text/xml`, `UTF-8`),
+          """<?xml version="1.0" encoding="UTF-8"?><xml><ToUserName><![CDATA[gh_b8159b34bcd2]]></ToUserName>
+            |<FromUserName><![CDATA[o9XkzuBBGMtnaM4zAJhKnQjMlWhE]]></FromUserName>
+            |<CreateTime>1410493716</CreateTime>
+            |<MsgType><![CDATA[text]]></MsgType>
+            |<Content><![CDATA[cc abcd中文]]></Content>
+            |<MsgId>6058024381633874779</MsgId>
+            |</xml>""")) ~> RouteContainer.routes ~> check {
+        println(responseAs[String])
+        responseAs[String].contains("成功创建Club") must beTrue
+      }
+    }
 
 
   }

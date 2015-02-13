@@ -1,81 +1,58 @@
 package wechat
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
-import akka.pattern._
-import akka.util.Timeout
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
 import bz.dao.UserDao
+import bz.helper.UserHelper
 import bz.model.User
 import org.joda.time.DateTime
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
-import wechat.model.{WechatTextResponse, WechatEventMsg, WechatTextMsg}
+import wechat.model.{ValidWechatMsg, WechatEventMsg, WechatTextMsg, WechatTextResponse}
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 
 
 /**
  * Created by joey on 14-9-18.
  */
-class WechatAppActor(id: Int,activitySupervisor: ActorRef,clubSupervisor: ActorRef) extends Actor with ActorLogging{
-//  def activitySupervisor = context.actorSelection("/user/activitySupervisor")
-//  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
-  def receive:Receive = {
-    case textMsg:WechatTextMsg =>
-      implicit val ori = textMsg
-      textMsg match {
-        case ActivityDetail(futureCmd) =>
-          log.info("recognize ActivityDetail")
-          futureCmd onSuccess {
-            case cmd => activitySupervisor forward ActivityDetailQuery(cmd.activityId,cmd.user)
-          }
-        case ClubCreateExportor(fClubCreate) =>
-          log.info("recognize ClubCreate")
-          implicit val timeout = Timeout(5 seconds)
-          val q = fClubCreate.flatMap {
-            cmd => clubSupervisor ? ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
-          }.recover{
-            case e =>
-              log.info("failed to build ClubCreateEvent")
-              new WechatTextResponse("failed to build ClubCreateEvent")
-          }
-          q pipeTo sender
-//          fClubCreate onSuccess {
-//            case cmd =>
-//              log.info("forward ClubCreateEvent")
-//              clubSupervisor forward ClubSupervisor.ClubCreateEvent(textMsg,cmd.cb,cmd.user)
-//          }
-//          fClubCreate onFailure {
-//            case e =>
-//              log.info("failed to build ClubCreateEvent")
-//              boundSender ! new WechatTextResponse("failed to build ClubCreateEvent")
-//          }
-        case _ => sender ! new WechatTextResponse("not recognized")
+class WechatAppActor(id: Int, activitySupervisor: ActorRef, clubSupervisor: ActorRef) extends Actor with ActorLogging
+with UserHelper {
+  //  def activitySupervisor = context.actorSelection("/user/activitySupervisor")
+  //  def clubSupervisor = context.actorSelection("/user/clubSupervisor")
+  def receive: Receive = {
+    case validMsg: ValidWechatMsg =>
+      val fUser = findUser(id, validMsg.fromUserName)
+      validMsg match {
+        case textMsg: WechatTextMsg =>
+          implicit val ori = textMsg
+          textMsg match {
+            case ActivityDetail(futureCmd) =>
+              log.info("recognize ActivityDetail")
+              futureCmd onSuccess {
+                case cmd => activitySupervisor forward ActivityDetailQuery(cmd.activityId, cmd.user)
+              }
+            case ClubCreateExportor(clubCreate) =>
+              log.info("recognize ClubCreate")
+              clubSupervisor forward ClubSupervisor.ClubCreateEvent(textMsg, clubCreate.name, fUser)
+            case _ => sender ! new WechatTextResponse("not recognized")
 
-      }
-    case e:WechatEventMsg if e.event=="subscribe" =>
-      log.info("recognize subscribe event")
-      val u = User(openId = e.fromUserName,appId = id,subscribeTime = new DateTime(),lastUpdateTime = new DateTime)
-      UserDao.insert(u).onComplete {
-        case Failure(e) =>
-          log.error("Fail to insert User",e.getMessage)
-        case Success(lastError) =>
-          log.info("subscribe success")
-          sender ! "ok"
+          }
+        case e: WechatEventMsg if e.event == "subscribe" =>
+          log.info("recognize subscribe event")
+          val u = User(openId = e.fromUserName, appId = id, subscribeTime = Some(new DateTime()), lastUpdateTime = new DateTime)
+          UserDao.insert(u).onComplete {
+            case Failure(e) =>
+              log.error("Fail to insert User", e.getMessage)
+            case Success(lastError) =>
+              log.info("subscribe success")
+              sender ! "ok"
+          }
       }
   }
-
-//  def exec:PartialFunction[WechatTextMsg,Any] = {
-//    case ActivityDetail(cmd:ActivityDetail) =>
-//      println(u)
-//      cmd
-//    case QueryMyActivity(cmd:QueryMyActivity) => cmd
-//  }
-
 }
 
-object WechatAppActor{
-  def props(appId: Int,activitySupervisor: ActorRef,clubSupervisor: ActorRef): Props = Props(classOf[WechatAppActor],appId,activitySupervisor,clubSupervisor)
+object WechatAppActor {
+  def props(appId: Int, activitySupervisor: ActorRef, clubSupervisor: ActorRef): Props = Props(classOf[WechatAppActor], appId, activitySupervisor, clubSupervisor)
 }

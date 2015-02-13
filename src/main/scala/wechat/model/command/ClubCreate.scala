@@ -1,32 +1,20 @@
 package wechat.model.command
 
-import bz.dao.UserDao
-import bz.model.{Club, User}
-import reactivemongo.extensions.dsl.BsonDsl._
 import wechat.model.WechatTextMsg
 import wechat.model.command.CmdRule.CmdRuleType
-
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
 
 /**
  * Created by joey on 15/2/1.
  */
-case class ClubCreate(cb:Club,user:User) extends ValidCmd
+case class ClubCreate(name:String) extends ValidCmd
 
 object ClubCreateExportor extends CmdRule("ClubCreate","""^cc\s+(.+)""",CmdRuleType.RegExpr){
 
-  def unapply(input:WechatTextMsg): Option[Future[ClubCreate]]={
+  def unapply(input:WechatTextMsg): Option[ClubCreate]={
     val re = pattern.r
     input.content.trim match {
       case re(name) =>
-        Some(
-          UserDao.findRandom("openId" $eq input.fromUserName) map {
-            case Some(user:User) =>
-              val cb = new Club(name=name,creatorId = user._id,limit=50)
-              ClubCreate(cb,user)
-          }
-        )
+        Some(ClubCreate(name))
       case _ => None
     }
   }
