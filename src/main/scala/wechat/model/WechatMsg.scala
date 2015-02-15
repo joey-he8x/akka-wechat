@@ -70,7 +70,7 @@ case class UnknownMsg(raw: NodeSeq)
   extends BaseWechatMsg
 
 abstract class WechatResponse{
-  def toXml:NodeSeq
+  def toString:String
 }
 class WechatTextResponse(toUserName:String,fromUserName:String,createTime:Long,content:String) extends WechatResponse{
   def this(content:String)(implicit req:ValidWechatMsg) = this(req.fromUserName,req.toUserName,DateTime.now.getMillis / 1000,content)
@@ -81,6 +81,12 @@ class WechatTextResponse(toUserName:String,fromUserName:String,createTime:Long,c
       <CreateTime>{createTime}</CreateTime>
       <MsgType><![CDATA[text]]></MsgType>
       <Content>{PCData(content)}</Content>
-    </xml>
+    </xml>.toString
+  }
+}
+
+class WechatEmptyResponse extends WechatResponse {
+  def toXml = {
+    ""
   }
 }

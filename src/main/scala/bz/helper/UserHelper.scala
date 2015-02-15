@@ -4,6 +4,8 @@ import bz.dao.UserDao
 import bz.model.User
 import org.joda.time.DateTime
 import reactivemongo.extensions.dsl.BsonDsl._
+import wechat.model.WechatEventMsg
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
@@ -19,5 +21,10 @@ trait UserHelper {
         UserDao.insert(u)
         u
     }
+  }
+
+  def newSubscribeUser(appId:Int,e:WechatEventMsg) = {
+    val u = User(openId = e.fromUserName, appId = appId, subscribeTime = Some(new DateTime()), lastUpdateTime = new DateTime)
+    UserDao.insert(u)
   }
 }

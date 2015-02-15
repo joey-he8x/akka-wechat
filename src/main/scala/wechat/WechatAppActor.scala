@@ -1,17 +1,14 @@
 package wechat
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
+import akka.pattern._
 import bz.ActivitySupervisor.ActivityDetailQuery
 import bz.ClubSupervisor
-import bz.dao.UserDao
 import bz.helper.UserHelper
-import bz.model.User
-import org.joda.time.DateTime
+import wechat.model._
 import wechat.model.command.{ActivityDetail, ClubCreateExportor}
-import wechat.model.{ValidWechatMsg, WechatEventMsg, WechatTextMsg, WechatTextResponse}
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Failure, Success}
 
 
 /**
@@ -41,14 +38,16 @@ with UserHelper {
           }
         case e: WechatEventMsg if e.event == "subscribe" =>
           log.info("recognize subscribe event")
-          val u = User(openId = e.fromUserName, appId = id, subscribeTime = Some(new DateTime()), lastUpdateTime = new DateTime)
-          UserDao.insert(u).onComplete {
-            case Failure(e) =>
-              log.error("Fail to insert User", e.getMessage)
-            case Success(lastError) =>
-              log.info("subscribe success")
-              sender ! "ok"
-          }
+          newSubscribeUser(id,e).map(
+            lasterror=>
+              if(lasterror.ok){
+                log.info("subscribe success")
+                new WechatTextResponse("欢迎使用小伙伴服务")
+              }else{
+                log.error("Fail to insert User", lasterror.message)
+                new WechatEmptyResponse
+              }
+          ) pipeTo sender
       }
   }
 }

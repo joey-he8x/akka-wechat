@@ -26,7 +26,7 @@ class WechatService(wechat: ActorRef)(implicit executionContext: ExecutionContex
     Unmarshaller.delegate[NodeSeq,BaseWechatMsg](`text/xml`)(WechatMsgFormator.apply)
 
   implicit val wechatmsgMarshaller =
-    Marshaller.delegate[WechatResponse,NodeSeq](`text/xml`)(_.toXml)
+    Marshaller.delegate[WechatResponse,String](`text/xml`)(_.toString)
 
   val route =
     path("wx-api" / IntNumber) { appId =>
